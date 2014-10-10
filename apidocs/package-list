@@ -2,3 +2,4 @@ net.openhft.chronicle.map
 net.openhft.chronicle.map.serialization
 net.openhft.chronicle.map.serialization.impl
 net.openhft.chronicle.map.threadlocal
+net.openhft.chronicle.set
