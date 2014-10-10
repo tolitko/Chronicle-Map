@@ -1,79 +1,1154 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Chronicle-map : Chronicle Map for Java 8">
+    <title>Chronicle-map by OpenHFT</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Chronicle-map</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
-
   <body>
+    <div class="wrapper">
+      <header>
+        <h1>Chronicle-map</h1>
+        <p>Chronicle Map</p>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/OpenHFT/Chronicle-Map">View on GitHub</a>
+        <p class="view"><a href="https://github.com/OpenHFT/Chronicle-Map">View the Project on GitHub <small>OpenHFT/Chronicle-Map</small></a></p>
 
-          <h1 id="project_title">Chronicle-map</h1>
-          <h2 id="project_tagline">Chronicle Map for Java 8</h2>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/OpenHFT/Chronicle-Map/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/OpenHFT/Chronicle-Map/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
+        <ul>
+          <li><a href="https://github.com/OpenHFT/Chronicle-Map/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/OpenHFT/Chronicle-Map/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/OpenHFT/Chronicle-Map">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p><em>We can help you get Chronicle up and running in your organisation, we suggest you invite us in for
+consultancy, charged on an ad-hoc basis, we can discuss the best options tailored to your individual
+requirements. - <a href="sales@higherfrequencytrading.com">Contact Us</a></em></p>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+<p><em>Or you may already be using Chronicle and just want some help - <a href="http://openhft.net/support/">find out more..</a></em></p>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<h1>
+<a name="chronicle-map" class="anchor" href="#chronicle-map"><span class="octicon octicon-link"></span></a>Chronicle Map</h1>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<p>Replicate your Key Value Store across your network, with consistency, durability and performance.
+<img src="http://openhft.net/wp-content/uploads/2014/07/ChronicleMap_200px.png" alt="Chronicle Map"></p>
+
+<h4>
+<a name="maven-artifact-download" class="anchor" href="#maven-artifact-download"><span class="octicon octicon-link"></span></a>Maven Artifact Download</h4>
+
+<div class="highlight highlight-xml"><pre><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>net.openhft<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>chronicle-map<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span><span class="c">&lt;!--replace with the latest version--&gt;</span><span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+
+<p>Click here to get the <a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22net.openhft%22%20AND%20a%3A%22chronicle-map%22">Latest Version Number</a> </p>
+
+<h4>
+<a name="contents" class="anchor" href="#contents"><span class="octicon octicon-link"></span></a>Contents</h4>
+
+<ul>
+<li><a href="https://github.com/OpenHFT/Chronicle-Map#should-i-use-chronicle-queue-or-chronicle-map">Should I use Chronicle Queue or Chronicle Map</a></li>
+<li><a href="https://github.com/OpenHFT/Chronicle-Map#what-is-the-difference-between-sharedhashmap-and-chronicle-map">What is the difference between SharedHashMap and Chronicle Map</a></li>
+<li><a href="https://github.com/OpenHFT/Chronicle-Map#overview">Overview</a></li>
+<li><a href="http://openhft.github.io/Chronicle-Map/apidocs">JavaDoc</a></li>
+<li>
+<a href="https://github.com/OpenHFT/Chronicle-Map#getting-started">Getting Started Guide</a>
+
+<ul>
+<li> <a href="https://github.com/OpenHFT/Chronicle-Map#simple-construction">Simple Construction</a>
+</li>
+<li> <a href="https://github.com/OpenHFT/Chronicle-Map#sharing-data-between-two-or-more-maps">Sharing Data Between Two or More Maps</a>
+</li>
+<li>  <a href="https://github.com/OpenHFT/Chronicle-Map#entries">Entries</a>
+</li>
+<li>  <a href="https://github.com/OpenHFT/Chronicle-Map#size-of-space-reserved-on-disk">Size of Space Reserved on Disk</a>
+</li>
+<li>  <a href="https://github.com/OpenHFT/Chronicle-Map#chronicle-map-interface">Chronicle Map Interface</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="https://github.com/OpenHFT/Chronicle-Map/blob/master/README.md#oversized-entries-support">Oversized Entries Support</a><br>
+</li>
+<li>
+<a href="https://github.com/OpenHFT/Chronicle-Map#serialization">Serialization</a>
+
+<ul>
+<li>  <a href="https://github.com/OpenHFT/Chronicle-Map#simple-types">Simple Types</a>
+</li>
+<li>  <a href="https://github.com/OpenHFT/Chronicle-Map#complex-types">Complex Types</a>
+</li>
+</ul>
+</li>
+<li><a href="https://github.com/OpenHFT/Chronicle-Map#close">Close</a></li>
+<li>
+<a href="https://github.com/OpenHFT/Chronicle-Map#tcp--udp-replication">TCP / UDP Replication</a>
+
+<ul>
+<li><a href="https://github.com/OpenHFT/Chronicle-Map#tcp--udp-background">TCP / UDP Background.</a></li>
+<li>  <a href="https://github.com/OpenHFT/Chronicle-Map#how-to-setup-udp-replication">How to setup UDP Replication</a>
+</li>
+<li> <a href="https://github.com/OpenHFT/Chronicle-Map#tcpip--throttling">TCP/IP Throttling</a>
+</li>
+<li>  <a href="https://github.com/OpenHFT/Chronicle-Map#replication-how-it-works">Replication How it works</a>
+</li>
+<li> <a href="https://github.com/OpenHFT/Chronicle-Map#multiple-chronicle-maps-on-a-the-same-server-with-replication">Multiple Chronicle Maps on a the same server with Replication</a>
+</li>
+<li>  <a href="https://github.com/OpenHFT/Chronicle-Map#identifier-for-replication">Identifier for Replication</a>
+</li>
+<li>  <a href="https://github.com/OpenHFT/Chronicle-Map#bootstrapping">Bootstrapping</a>
+</li>
+<li>     <a href="https://github.com/OpenHFT/Chronicle-Map#identifier">Identifier</a>
+</li>
+<li><a href="https://github.com/OpenHFT/Chronicle-Map#port">Port</a></li>
+<li><a href="https://github.com/OpenHFT/Chronicle-Map#heart-beat-interval">Heart Beat Interval</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/OpenHFT/Chronicle-Map#cluster">Clustering</a></li>
+</ul>
+
+<h4>
+<a name="miscellaneous" class="anchor" href="#miscellaneous"><span class="octicon octicon-link"></span></a>Miscellaneous</h4>
+
+<ul>
+<li><a href="https://github.com/OpenHFT/Chronicle-Map#known-issues">Known Issues</a></li>
+<li><a href="http://stackoverflow.com/tags/chronicle/info">Stackoverflow</a></li>
+<li><a href="https://higherfrequencytrading.atlassian.net/browse/HCOLL">Development Tasks - JIRA</a></li>
+<li><a href="http://openhft.net/products/chronicle-engine/">Use Case Which include Chronicle Map</a></li>
+</ul>
+
+<h4>
+<a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h4>
+
+<ul>
+<li><a href="https://github.com/OpenHFT/Chronicle-Map/blob/master/README.md#example--simple-hello-world">Hello World - A map which stores data off heap</a></li>
+<li><a href="https://github.com/OpenHFT/Chronicle-Map/blob/master/README.md#example--sharing-the-map-on-two--or-more--processes-on-the-same-machine">Sharing the map between two ( or more ) processes on the same computer</a></li>
+<li><a href="https://github.com/OpenHFT/Chronicle-Map/blob/master/README.md#example--replicating-data-between-process-on-different-servers-via-tcp">Replicating data between process on different servers with TCP/IP Replication</a></li>
+<li><a href="https://github.com/OpenHFT/Chronicle-Map/blob/master/README.md#example--replicating-data-between-process-on-different-servers-using-udp">Replicating data between process on different servers with UDP</a></li>
+<li> <a href="https://github.com/OpenHFT/Chronicle-Map/blob/master/README.md#example--creating-a-chronicle-set-and-adding-data-to-it">Creating a Chronicle Set and adding data to it</a>
+</li>
+</ul>
+
+<h4>
+<a name="performance-topics" class="anchor" href="#performance-topics"><span class="octicon octicon-link"></span></a>Performance Topics</h4>
+
+<ul>
+<li><a href="https://github.com/OpenHFT/Chronicle-Map#chronicle-map-with-large-data">Chronicle Map with Large Data </a></li>
+<li><a href="https://github.com/OpenHFT/Chronicle-Map#better-to-use-small-keys">Better to use small keys</a></li>
+<li><a href="https://github.com/OpenHFT/Chronicle-Map#concurrenthashmap-v-chroniclemap">ConcurrentHashMap v ChronicleMap</a></li>
+</ul>
+
+<h3>
+<a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Overview</h3>
+
+<p>Chronicle Map implements the <code>java.util.concurrent.ConcurrentMap</code>, however unlike the standard
+java map, ChronicleMap is able to share your entries accross processes:</p>
+
+<p><img src="http://openhft.net/wp-content/uploads/2014/07/Chronicle-Map-diagram_04.jpg" alt=""></p>
+
+<h2>
+<a name="when-to-use" class="anchor" href="#when-to-use"><span class="octicon octicon-link"></span></a>When to use</h2>
+
+<h4>
+<a name="when-to-use-hashmap" class="anchor" href="#when-to-use-hashmap"><span class="octicon octicon-link"></span></a>When to use HashMap</h4>
+
+<p>If you compare <code>HashMap</code>, <code>ConcurrentHashMap</code> and <code>ChronicleMap</code>, most of the maps in your system
+are likely to be HashMap.  This is because <code>HashMap</code> is lightweight and synchronized HashMap works
+well for lightly contended use cases.  By contention I mean, how many threads on average are trying
+to use a Map.  One reason you can't have many contended resources, is that you only have so many
+CPUs and they can only be accessing so many resources at once (ideally no more than one or two
+per thread at a time).</p>
+
+<h4>
+<a name="when-to-use-concurrenthashmap" class="anchor" href="#when-to-use-concurrenthashmap"><span class="octicon octicon-link"></span></a>When to use ConcurrentHashMap</h4>
+
+<p><code>ConcurrentHashMap</code> scales very well when highly contended.  It uses more memory but if you only
+have a few of them, this doesn't matter.  They have higher throughput than the other two solutions,
+but also it creates the highest garbage.  If garbage pressure is an issue for you, you may want
+to consider <code>ChronicleMap</code></p>
+
+<p>One of the main differences between chronicle and ConcurrentHashMap, is how you go about creating
+an instance see the getting started guide below for details.</p>
+
+<h4>
+<a name="when-to-use-chronicle-map" class="anchor" href="#when-to-use-chronicle-map"><span class="octicon octicon-link"></span></a>When to use Chronicle Map</h4>
+
+<p>If you have;</p>
+
+<ul>
+<li>lots of small key-values</li>
+<li>you want to minimise garbage produced, and medium lived objects.</li>
+<li>you need to share data between JVMs</li>
+<li>you need persistence</li>
+</ul>
+
+<h4>
+<a name="should-i-use-chronicle-queue-or-chronicle-map" class="anchor" href="#should-i-use-chronicle-queue-or-chronicle-map"><span class="octicon octicon-link"></span></a>Should I use Chronicle Queue or Chronicle Map</h4>
+
+<p>Chronicle queue is designed to send every update. If your network can't do this something has
+to give. You could compress the data but at some point you have to work within the limits of your
+hardware or get more hardware. Chronicle Map on the other hand sends the latest value only.
+This will naturally drop updates and is a more natural choice for low bandwidth connections.</p>
+
+<h4>
+<a name="what-is-the-difference-between-sharedhashmap-and-chronicle-map" class="anchor" href="#what-is-the-difference-between-sharedhashmap-and-chronicle-map"><span class="octicon octicon-link"></span></a>What is the difference between <a href="https://github.com/OpenHFT/HugeCollections">SharedHashMap</a> and Chronicle Map</h4>
+
+<p>SharedHashMap is an outdated version of ChronicleMap project.
+Effectively SharedHashMap has just been renamed to ChronicleMap, to further enrich the Chronicle
+product suite. In addition, The original Chronicle has been renamed to Chronicle Queue.</p>
+
+<h2>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<h3>
+<a name="simple-construction" class="anchor" href="#simple-construction"><span class="octicon octicon-link"></span></a>Simple Construction</h3>
+
+<p>To download the JAR which contains Chronicle Map, we recommend you use maven, which will download it
+from <a href="http://search.maven.org">Maven Central</a>, once you have installed maven, all you have to do is
+add the following to your projects <code>pom.xml</code>:</p>
+
+<h4>
+<a name="maven-artifact-download-1" class="anchor" href="#maven-artifact-download-1"><span class="octicon octicon-link"></span></a>Maven Artifact Download</h4>
+
+<div class="highlight highlight-xml"><pre><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>net.openhft<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>chronicle-map<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span><span class="c">&lt;!--replace with the latest version--&gt;</span><span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+
+<p>To get the latest version number
+<a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22net.openhft%22%20AND%20a%3A%22chronicle-map%22">Click Here</a> </p>
+
+<p>when you add ( the above dependency ) to your pom maven will usually attempt to download the release artifacts from: </p>
+
+<pre><code>http://repo1.maven.org/maven2/net/openhft/chronicle-map
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<h4>
+<a name="maven-snapshot-download" class="anchor" href="#maven-snapshot-download"><span class="octicon octicon-link"></span></a>Maven Snapshot Download</h4>
+
+<p>If you want to try out the latest pre-release code, you can download the snapshot artifact manually from: </p>
+
+<div class="highlight highlight-xml"><pre>https://oss.sonatype.org/content/repositories/snapshots/net/openhft/chronicle-map/
+</pre></div>
+
+<p>a better way is to add the following to your setting.xml, to allow maven to download snapshots :</p>
+
+<div class="highlight highlight-xml"><pre><span class="nt">&lt;repository&gt;</span>
+    <span class="nt">&lt;id&gt;</span>Snapshot Repository<span class="nt">&lt;/id&gt;</span>
+    <span class="nt">&lt;name&gt;</span>Snapshot Repository<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;url&gt;</span>https://oss.sonatype.org/content/repositories/snapshots<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;snapshots&gt;</span>
+        <span class="nt">&lt;enabled&gt;</span>true<span class="nt">&lt;/enabled&gt;</span>
+    <span class="nt">&lt;/snapshots&gt;</span>
+<span class="nt">&lt;/repository&gt;</span>
+</pre></div>
+
+<p>and define the snapshot version in your pom.xml, for example:</p>
+
+<div class="highlight highlight-xml"><pre><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>net.openhft<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>chronicle-map<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.0.1-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+
+<h4>
+<a name="java-class-construction" class="anchor" href="#java-class-construction"><span class="octicon octicon-link"></span></a>Java Class Construction</h4>
+
+<p>Creating an instance of Chronicle Map is a little more complexed than just calling a constructor.
+To create an instance you have to use the ChronicleMapBuilder.</p>
+
+<div class="highlight highlight-java"><pre><span class="kn">import</span> <span class="nn">net.openhft.chronicle.map.*</span>
+<span class="o">.....</span>
+
+<span class="k">try</span> <span class="o">{</span>
+
+    <span class="n">String</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">"java.io.tmpdir"</span><span class="o">);</span>
+    <span class="n">String</span> <span class="n">pathname</span> <span class="o">=</span> <span class="n">tmp</span> <span class="o">+</span> <span class="s">"/shm-test/myfile.dat"</span><span class="o">;</span>
+
+    <span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="n">pathname</span><span class="o">);</span>
+
+    <span class="n">ChronicleMapBuilder</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">CharSequence</span><span class="o">&gt;</span> <span class="n">builder</span> <span class="o">=</span>
+        <span class="n">ChronicleMapBuilder</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">CharSequence</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+    <span class="n">ConcurrentMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">CharSequence</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
+
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></div>
+
+<p>Chronicle Map stores its data off the java heap, If you wish to share this off-heap memory between
+processes on the same server, you must provide a "file", this file must be the same "file" for all
+the instances of Chronicle Map on the same server. The name and location of the "file" is entirely
+up to you.  For the best performance on many unix systems we recommend using
+<a href="http://en.wikipedia.org/wiki/Tmpfs">tmpfs</a>.</p>
+
+<p>If instead, you do not wish to replicate between process on the same server or if you are only
+using TCP replication to replicate between servers, you do not have to provide the "file",
+so you can call <code>create()</code> method on ChronicleMapBuilder without file parameter:</p>
+
+<pre><code>ConcurrentMap&lt;Integer, CharSequence&gt; map = builder.create();
+</code></pre>
 
 <h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<a name="sharing-data-between-two-or-more-maps" class="anchor" href="#sharing-data-between-two-or-more-maps"><span class="octicon octicon-link"></span></a>Sharing Data Between Two or More Maps</h3>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<p>Since this file is memory mapped, if you were to create another instance of the Chronicle Map,
+pointing to the same file, both Chronicle Maps use this file as a common memory store, which they
+both read and write into. The good thing about this is the two ( or more instances of the Chronicle Map )
+don't have to be running in the same java process. Ideally and for best performance, the two processes
+should be running on the same server. Since the file is memory mapped, ( in most cases ) the read
+and writes to the file are hitting the disk cache. Allowing the chronicle map to exchange data
+between processes by just using memory and in around 40 nanoseconds. </p>
+
+<div class="highlight highlight-java"><pre><span class="n">ConcurrentMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">CharSequence</span><span class="o">&gt;</span> <span class="n">map1</span><span class="o">,</span> <span class="n">map2</span><span class="o">;</span>
+
+<span class="c1">// this could could be on one process</span>
+<span class="n">map1</span> <span class="o">=</span> <span class="n">ChronicleMapBuilder</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">CharSequence</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">create</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
+
+<span class="c1">// this could be on the other process</span>
+<span class="n">map2</span> <span class="o">=</span> <span class="n">ChronicleMapBuilder</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">CharSequence</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">create</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
+</pre></div>
+
+<p>Note: In order to share data between map1 and map2, the file has to point to the same file location
+on your server.</p>
 
 <h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<a name="entries" class="anchor" href="#entries"><span class="octicon octicon-link"></span></a>Entries</h3>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<p>One of the differences with Chronicle Map against ConcurrentHashMap, is that it can't be resized,
+unlike the ConcurrentHashMap, Chronicle Map is not limited to the available on heap memory.
+Resizing is a very expensive operation for Hash Maps, as it can stall your application, so as such
+we don't do it. When you are building a Chronicle Map you can set the maximum number of entries that
+you are ever likely to support, its ok to over exaggerate this number. As the Chronicle Map is not
+limited to your available memory, At worst you will end up having a very large file on disk.</p>
+
+<p>You set the maximum number of entries by the builder:</p>
+
+<div class="highlight highlight-java"><pre><span class="n">ConcurrentMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">CharSequence</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span>
+    <span class="n">ChronicleMapBuilder</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">CharSequence</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">entries</span><span class="o">(</span><span class="mi">1000</span><span class="o">)</span> <span class="c1">// set the max number of entries here</span>
+    <span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
+</pre></div>
+
+<p>In this example above we have set 1000 entries.</p>
+
+<p>We have optimised chronicle, So that you can have situations where you either don't use;</p>
+
+<ul>
+<li><p>all the entries you have allowed for.  This works best on Unix where the disk space and memory used reflect the number of actual entries, not the number you allowed for.</p></li>
+<li><p>all the space you allow for each entry.  This helps if you have entries which are multiple cache lines (128 bytes +), only the lines you touch sit in your CPU cache and if you have multiple pages (8+ Kbytes) only the pages you touch use memory or disk.  The CPU cache usage matters as it can be 10000x smaller than main memory.</p></li>
+</ul>
 
 <h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<a name="size-of-space-reserved-on-disk" class="anchor" href="#size-of-space-reserved-on-disk"><span class="octicon octicon-link"></span></a>Size of space reserved on disk</h3>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<p>In linux, if you looked at the size of the 'file', it will report the used entry size so if you
+have just added one entry, it will report the size of this entry, but Windows will report
+the reserved size, as it reserves the disk space eagerly ( in fact windows also reserves the memory
+eagerly as well ) in other words number-of-entries x entry-size. </p>
+
+<p>so on linux, if your type</p>
+
+<pre><code># It shows you the extents. 
+ls -l &lt;file&gt;
+
+# It shows you how much is actually used.
+du &lt;file&gt;
+</code></pre>
+
+<p>To illustrate this with an example - On Ubuntu we can create a 100 TB chronicle map.  Both <code>top</code> and
+<code>ls -l</code> say the process virtual size / file size is 100 TB, however the resident memory via <code>du</code>
+says the size is 71 MB after adding 10000 entries. You can see the size actually used with du.</p>
 
 <h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<a name="chronicle-map-interface" class="anchor" href="#chronicle-map-interface"><span class="octicon octicon-link"></span></a>Chronicle Map Interface</h3>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>The Chronicle Map interface adds a few methods above an beyond the standard ConcurrentMap,
+the ChronicleMapBuilder can also be used to return the ChronicleMap, see the example below :</p>
+
+<div class="highlight highlight-java"><pre><span class="n">ChronicleMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">CharSequence</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span>
+    <span class="n">ChronicleMapBuilder</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">CharSequence</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">create</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
+</pre></div>
+
+<p>One way to achieve good performance is to focus on unnecessary object creation as this reduces
+the amount of work that has to be carried out by the Garbage Collector. As such ChronicleMap
+supports the following methods :</p>
+
+<ul>
+<li><a href="http://openhft.github.io/Chronicle-Map/apidocs/net/openhft/chronicle/map/ChronicleMap.html#getUsing-K-V-"><code>V getUsing(K key, V value);</code></a></li>
+<li><a href="http://openhft.github.io/Chronicle-Map/apidocs/net/openhft/chronicle/map/ChronicleMap.html#acquireUsing-K-V-"><code>V acquireUsing(K key, V value);</code></a></li>
+</ul>
+
+<p>These methods let you provide the object which the data will be written to, even if the object it
+immutable. For example </p>
+
+<div class="highlight highlight-java"><pre><span class="n">StringBuilder</span> <span class="n">myString</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">StringBuilder</span><span class="o">();</span> 
+<span class="n">StringBuilder</span> <span class="n">myResult</span> <span class="o">=</span> <span class="n">map</span><span class="o">.</span><span class="na">getUsing</span><span class="o">(</span><span class="s">"key"</span><span class="o">,</span> <span class="n">myString</span><span class="o">);</span>
+<span class="c1">// at this point the myString and myResult will both point to the same object</span>
+</pre></div>
+
+<p>The <code>map.getUsing()</code> method is similar to <code>get()</code>, but because Chronicle Map stores its data off
+heap, if you were to call get("key"), a new object would be created each time, map.getUsing() works
+by reusing the heap memory which was used by the original Object "myString". This technique provides
+you with better control over your object creation.</p>
+
+<p>Exactly like <code>map.getUsing()</code>, <code>acquireUsing()</code> will give you back a reference to an value based on
+a key, but unlike <code>getUsing()</code> if there is not an entry in the map for this key the entry will be
+added and the value return will we the same value which you provided.</p>
+
+<h2>
+<a name="oversized-entries-support" class="anchor" href="#oversized-entries-support"><span class="octicon octicon-link"></span></a>Oversized Entries Support</h2>
+
+<p>It is possible for an entry to be twice as large as the maximum entry, we refer to this type of
+entry as an oversized entry. Oversized entries are there to cater for the case where only a small
+percentage of your entries are twise as large as the others, in this case your large entry will
+span across two entries. The alternative would be to increase your maximum entry size to be similar
+to the size of the largest entry, but this approach is wasteful of memory, especially when most
+entries are no where near the max entry size.  </p>
+
+<h2>
+<a name="serialization" class="anchor" href="#serialization"><span class="octicon octicon-link"></span></a>Serialization</h2>
+
+<p>Chronicle Map stores your data into off heap memory, so when you give it a Key or Value, it will
+serialise these objects into bytes.</p>
+
+<h3>
+<a name="simple-types" class="anchor" href="#simple-types"><span class="octicon octicon-link"></span></a>Simple Types</h3>
+
+<p>If you are using simple auto boxed objects based on the primitive types, Chronicle Map will
+automatically handle the serialisation for you.  </p>
+
+<h3>
+<a name="complex-types" class="anchor" href="#complex-types"><span class="octicon octicon-link"></span></a>Complex Types</h3>
+
+<p>For anything other than the standard object, the Objects either have to :</p>
+
+<ul>
+<li>implement "java.io.Serializable" ( which we don't recommend as this can be slow )</li>
+<li>we also support "java.io.Externalizable", we recommend this over Serializable as its usually faster.</li>
+<li>or for the best performance implement net.openhft.lang.io.serialization.BytesMarshallable,
+an example of how to do this can be found at "IntValue$$Native"</li>
+<li>alternatively, you could write a "Custom Marshaller", the custom marshaller can be implemented
+for a single type or a number of types.</li>
+</ul>
+
+<h3>
+<a name="close" class="anchor" href="#close"><span class="octicon octicon-link"></span></a>Close</h3>
+
+<p>Unlike ConcurrentHashMap, chronicle map stores its data off heap, often in a memory mapped file.
+Its recommended that you call close() once you have finished working with a Chronicle Map.</p>
+
+<div class="highlight highlight-java"><pre><span class="n">map</span><span class="o">.</span><span class="na">close</span><span class="o">()</span>
+</pre></div>
+
+<p>WARNING : If you call close too early before you have finished working with the map, this can cause
+your JVM to crash. Close MUST BE the last thing that you do with the map.</p>
+
+<h1>
+<a name="tcp--udp-replication" class="anchor" href="#tcp--udp-replication"><span class="octicon octicon-link"></span></a>TCP / UDP Replication</h1>
+
+<p>Chronicle Hash Map supports both TCP and UDP replication</p>
+
+<h3>
+<a name="tcp--udp-background" class="anchor" href="#tcp--udp-background"><span class="octicon octicon-link"></span></a>TCP / UDP Background.</h3>
+
+<p>TCP/IP is a reliable protocol, what this means is unless you have a network failure or hardware
+outage the data is guaranteed to arrive. TCP/IP provides point to point connectivity. So in effect
+( over simplified ), if the message was sent to 100 hosts, The message would have to be sent
+100 times. With UDP, the message is only sent once. This is ideal if you have a large number of
+hosts and you wish to broadcast the same data to each off them.   However, one of the big drawbacks
+with UDP is its not a reliable protocol. This means, if the UDP message is Broadcast onto
+the network, The hosts are not guaranteed to receive it, so they can miss data. Some solutions
+attempt to build resilience into UDP, but arguably, this is in effect reinventing TCP/IP.</p>
+
+<h3>
+<a name="how-to-setup-udp-replication" class="anchor" href="#how-to-setup-udp-replication"><span class="octicon octicon-link"></span></a>How to setup UDP Replication</h3>
+
+<p>In reality on a good quality wired LAN, when using UDP, you will rarely miss messages, this is
+a risk that we suggest you don't take. We suggest that whenever you use UDP replication you use it
+in conjunction with a throttled TCP replication, therefore if a host misses a message over UDP, they
+will later pick it up via TCP/IP. </p>
+
+<h3>
+<a name="tcpip--throttling" class="anchor" href="#tcpip--throttling"><span class="octicon octicon-link"></span></a>TCP/IP  Throttling</h3>
+
+<p>We are careful not to swamp your network with too much TCP/IP traffic, We do this by providing
+a throttled version of TCP replication. This works because Chronicle Map only broadcasts the latest
+update of each entry. </p>
+
+<h3>
+<a name="replication-how-it-works" class="anchor" href="#replication-how-it-works"><span class="octicon octicon-link"></span></a>Replication How it works</h3>
+
+<p>Chronicle Map provides multi master hash map replication, What this means, is that each remote
+hash-map, mirrors its changes over to another remote hash map, neither hash map is considered
+the master store of data, each hash map uses timestamps to reconcile changes.
+We refer to in instance of a remote hash-map as a node.
+A node can be connected to up to 128 other nodes.
+The data that is stored locally in each node becomes eventually consistent. So changes made to one
+node, for example by calling put() will be replicated over to the other node. To achieve a high
+level of performance and throughput, the call to put() won’t block, 
+With concurrentHashMap, It is typical to check the return code of some methods to obtain the old
+value for example remove(). Due to the loose coupling and lock free nature of this multi master
+implementation,  this return value is only the old value on the nodes local data store. In other
+words the nodes are only concurrent locally. Its worth realising that another node performing
+exactly the same operation may return a different value. However reconciliation will ensure the maps
+themselves become eventually consistent.</p>
+
+<h3>
+<a name="reconciliation" class="anchor" href="#reconciliation"><span class="octicon octicon-link"></span></a>Reconciliation</h3>
+
+<p>If two ( or more nodes ) receive a change to their maps for the same key but different values, say
+by a user of the maps, calling the put(key,value). Then, initially each node will update its local
+store and each local store will hold a different value, but the aim of multi master replication is
+to provide eventual consistency across the nodes. So, with multi master when ever a node is changed
+it will notify the other nodes of its change. We will refer to this notification as an event.
+The event will hold a timestamp indicating the time the change occurred, it will also hold the state
+transition, in this case it was a put with a key and value.
+Eventual consistency is achieved by looking at the timestamp from the remote node, if for a given
+key, the remote nodes timestamp is newer than the local nodes timestamp, then the event from
+the remote node will be applied to the local node, otherwise the event will be ignored. Since
+none of the nodes is a primary, each node holds information about the other nodes. For this node its
+own identifier is referred to as its 'localIdentifier', the identifiers of other nodes are the
+'remoteIdentifiers'. On an update or insert of a key/value, this node pushes the information of
+the change to the remote nodes. The nodes use non-blocking java NIO I/O and all replication is done
+on a single thread. However there is an edge case, If two nodes update their map at the same time
+with different values, we had to deterministically resolve which update wins, because of eventual
+consistency both nodes should end up locally holding the same data. Although it is rare two remote
+nodes could receive an update to their maps at exactly the same time for the same key, we had
+to handle this edge case, its therefore important not to rely on timestamps alone to reconcile
+the updates. Typically the update with the newest timestamp should win, but in this example both
+timestamps are the same, and the decision made to one node should be identical to the decision made
+to the other. This dilemma is resolved by using a node identifier, the node identifier is a unique
+'byte' value that is assigned to each node, So when the time stamps are the same if the remoteNodes
+identifier is smaller than the local nodes identifier, this update will be accepted otherwise it
+will be ignored.</p>
+
+<h3>
+<a name="multiple-chronicle-maps-on-a-the-same-server-with-replication" class="anchor" href="#multiple-chronicle-maps-on-a-the-same-server-with-replication"><span class="octicon octicon-link"></span></a>Multiple Chronicle Maps on a the same server with Replication</h3>
+
+<p>If two or more Chronicle Maps are on the same server, they exchange data via shared memory rather
+than TCP or UDP replication. So if a Chronicle Map which is not performing TCP Replication is
+updated, this update can be picked up by another Chronicle Map, this other Chronicle Hash Map could
+be a TCP replicated Chronicle Map, In this example the TCP replicated Chronicle Map would then push
+the update to the remote nodes.</p>
+
+<p>Likewise, If the TCP replicated Chronicle Map was to received an update from a remote node, then
+this update would be immediately available to all the Chronicle Maps on the server.</p>
+
+<h3>
+<a name="identifier-for-replication" class="anchor" href="#identifier-for-replication"><span class="octicon octicon-link"></span></a>Identifier for Replication</h3>
+
+<p>If all you are doing is replicating your chronicle maps on the same server you don't have to set up
+TCP and UDP replication. You also don't have to set the identifiers. </p>
+
+<p>If however you wish to replicate data between 2 or more servers, then ALL of the Chronicle Maps
+including those not actively participating in TCP or UDP replication must have the identifier set.
+The identifier must be unique to each server. Each Chronicle Map on the same server must have
+the same identifier. The reason that all Chronicle Maps must have the identifier set, is because
+the memory is laid out slightly differently when using replication, so even if a Map is not actively
+performing TCP or UDP replication its self, if it wishes to replicate with one that is, it must have
+its memory laid out the same way to be compatible. </p>
+
+<p>If the identifiers are not set up uniquely then the updates will be ignored, as for example
+a Chronicle Map set up with the identifiers equals '1', will ignore all events which contain
+the remote identifier of '1', in other words Chronicle Map replication is set up to ignore updates
+which have originated from itself. This is to avoid the circularity of events.</p>
+
+<p>When setting up the identifier you can use values from 1 to 127. ( see the section above for more
+information on identifiers and how they are used in replication. )</p>
+
+<p>The identifier is setup on the builder as follows.</p>
+
+<div class="highlight highlight-java"><pre><span class="n">TcpReplicationConfig</span> <span class="n">tcpConfig</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">map</span> <span class="o">=</span> <span class="n">ChronicleMapBuilder</span>
+    <span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">CharSequence</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">addReplicator</span><span class="o">(</span><span class="n">Replicators</span><span class="o">.</span><span class="na">tcp</span><span class="o">(</span><span class="n">identifier</span><span class="o">,</span> <span class="n">tcpConfig</span><span class="o">))</span>
+    <span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
+</pre></div>
+
+<h3>
+<a name="bootstrapping" class="anchor" href="#bootstrapping"><span class="octicon octicon-link"></span></a>Bootstrapping</h3>
+
+<p>When a node is connected over the network to an active grid of nodes. It must first receive any data
+that it does not have from the other nodes. Eventually, all the nodes in the grid have to hold a
+copy of exactly the same data. We refer to this initial data load phase as bootstrapping.
+Bootstrapping by its very nature is point to point, so it is only performed over TCP replication.
+For architectures that wish to use UDP replication it is advised you use TCP Replication as well. A
+grid which only uses UDP replication will miss out on the bootstrapping, possibly leaving the nodes
+in an inconsistent state. To avoid this, if you would rather reduce the amount of TCP traffic on
+your network, we suggest you consider using a throttle TCP replication along with UDP replication.
+Bootstrapping is not used when the nodes are on the same server, so for this case, TCP replication
+is not required.</p>
+
+<h3>
+<a name="identifier" class="anchor" href="#identifier"><span class="octicon octicon-link"></span></a>Identifier</h3>
+
+<p>Each map is allocated a unique identifier</p>
+
+<p>Server 1 has:</p>
+
+<pre><code>.addReplicator(Replicators.tcp((byte) 1, tcpConfig))
+</code></pre>
+
+<p>Server 2 has:</p>
+
+<pre><code>.addReplicator(Replicators.tcp((byte) 2, tcpConfig))
+</code></pre>
+
+<p>If you fail to allocate a unique identifier replication will not work correctly.</p>
+
+<h3>
+<a name="port" class="anchor" href="#port"><span class="octicon octicon-link"></span></a>Port</h3>
+
+<p>Each map must be allocated a unique port, the port has to be unique per server, if the maps are
+running on different hosts they could be allocated the same port, but in our example we allocated
+them different ports, we allocated map1 port 8076 and map2 port 8077. Currently we don't support
+data forwarding, so it important to connect every remote map, to every other remote map, in other
+words you can't have a hub configuration where all the data passes through a single map which every
+other map is connected to. So currently, if you had 4 servers each with a Chronicle Map, you would
+require 6 connections.</p>
+
+<p>In our case we are only using 2 maps, this is how we connected map1 to map 2.</p>
+
+<pre><code>TcpReplicationConfig.of(8076, new InetSocketAddress("localhost", 8077))
+                    .heartBeatInterval(1, SECONDS);
+</code></pre>
+
+<p>you could have put this instruction on map2 instead, like this </p>
+
+<pre><code>TcpReplicationConfig.of(8077, new InetSocketAddress("localhost", 8076))
+                    .heartBeatInterval(1, SECONDS);
+</code></pre>
+
+<p>even though data flows from map1 to map2 and map2 to map1 it doesn't matter which way you connected
+this, in other words its a bidirectional connection. </p>
+
+<h3>
+<a name="heart-beat-interval" class="anchor" href="#heart-beat-interval"><span class="octicon octicon-link"></span></a>Heart Beat Interval</h3>
+
+<p>We set a heartBeatInterval, in our example to 1 second</p>
+
+<div class="highlight highlight-java"><pre> <span class="n">heartBeatInterval</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">SECONDS</span><span class="o">)</span>
+</pre></div>
+
+<p>A heartbeat will only be send if no data is transmitted, if the maps are constantly exchanging data
+no heartbeat message is sent. If a map does not receive either data of a heartbeat the connection
+is dropped and re-established.</p>
+
+<h1>
+<a name="cluster" class="anchor" href="#cluster"><span class="octicon octicon-link"></span></a>Cluster</h1>
+
+<p>Chronicle Map TCP Replication lets you distribute a single Chronicle Map, to a number of servers
+across your network. Replication is point to point and the data transfer is bidirectional, so in the
+example of just two servers, they only have to be connected via a single tcp socket connection and
+the data is transferred both ways. Which is great, however what if you wanted to replicate more than
+just one chronicle map, what if you were going to replicate two chronicle maps across your network,
+unfortunately with just TCP replication you would have to have two tcp socket connections, which is
+not ideal. This is why we created Chronicle Clustering. Clustering lets you replicate numerous
+Chronicle Maps via a single point to point socket connection.</p>
+
+<p>Clustering is similar to TCP replication, where each map has to be given a unique identifier, but
+when using Chronicle Clustering its the cluster that is given the unique identifier not the map.</p>
+
+<div class="highlight highlight-java"><pre><span class="n">ReplicatingClusterBuilder</span> <span class="n">clusterBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">ReplicatingClusterBuilder</span><span class="o">((</span><span class="kt">byte</span><span class="o">)</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1024</span><span class="o">);</span>
+</pre></div>
+
+<p>In this example above the cluster is given the identifier of 2</p>
+
+<p>In addition to specifying the identifier we also have to set the maximum entry size, this sets
+the size of the memory buffers within the cluster.  This has to be set manually, with clusters you
+are able to attach additional maps to a cluster once its up and running, so the maximum size of each
+entry in the map can not be known in advance and we don’t currently support automatic resizing
+of buffers.</p>
+
+<p>Once you have created the cluster you should attach your tcpConfig</p>
+
+<div class="highlight highlight-java"><pre><span class="n">TcpReplicationConfig</span> <span class="n">tcpConfig</span> <span class="o">=</span> <span class="n">TcpReplicationConfig</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">8087</span><span class="o">).</span><span class="na">heartBeatInterval</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">SECONDS</span><span class="o">);</span>
+<span class="n">clusterBuilder</span><span class="o">.</span><span class="na">tcpReplication</span><span class="o">(</span><span class="n">tcpConfig</span><span class="o">);</span>
+<span class="n">ReplicatingCluster</span> <span class="n">cluster</span> <span class="o">=</span> <span class="n">clusterBuilder</span><span class="o">.</span><span class="na">create</span><span class="o">();</span>
+</pre></div>
+
+<p>Attaching cluster replication to the map:</p>
+
+<div class="highlight highlight-java"><pre><span class="n">ChronicleMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">CharSequence</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="n">ChronicleMapBuilder</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">CharSequence</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">entries</span><span class="o">(</span><span class="mi">1000</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">addReplicator</span><span class="o">(</span><span class="n">cluster</span><span class="o">.</span><span class="na">channelReplicator</span><span class="o">((</span><span class="kt">short</span><span class="o">)</span> <span class="mi">1</span><span class="o">))</span>
+    <span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
+</pre></div>
+
+<p>The chronicle channel is use to identify which map is to be replicated to which other map on
+the remote node, in the example above this is assigned to '(short) 1', so for example if you have
+two maps, lets call them map1 and map2, you could assign them with chronicle
+channels 1 and 2 respectively. Map1 would have the chronicle channel of 1 on both servers. You
+should not confuse the Chronicle Channels with the identifiers, the identifiers are unique per
+replicating node the chronicle channels are used to identify which map you are referring. No
+additional socket connection is made per chronicle channel that you use, so we allow up to 32767
+chronicle channels.</p>
+
+<p>If you inadvertently got the chronicle channels around the wrong way, then chronicle would attempt
+to replicate the wrong maps data. The chronicle channels don't have to be in order but they must be
+unique for each map you have.</p>
+
+<p>Once you have created the cluster you may wish to hold onto the reference so that you can call close
+once you have finished, this will close everything in the cluster </p>
+
+<div class="highlight highlight-java"><pre><span class="n">cluster</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</pre></div>
+
+<h4>
+<a name="known-issues" class="anchor" href="#known-issues"><span class="octicon octicon-link"></span></a>Known Issues</h4>
+
+<h5>
+<a name="memory-issue-on-windows" class="anchor" href="#memory-issue-on-windows"><span class="octicon octicon-link"></span></a>Memory issue on Windows</h5>
+
+<p>Chronicle map lets you assign a map larger than your available memory, If you were to create more
+entries than the available memory, chronicle map will page the segments that are accessed least to
+disk, and load the recently used segments into available memory. This feature lets you work with
+extremely large maps, it works brilliantly on Linux but unfortunately, this paging feature is not
+supported on Windows, if you use more memory than is physically available on windows you will
+experience the following error :</p>
+
+<div class="highlight highlight-java"><pre><span class="n">Java</span> <span class="nl">frames:</span> <span class="o">(</span><span class="n">J</span><span class="o">=</span><span class="n">compiled</span> <span class="n">Java</span> <span class="n">code</span><span class="o">,</span> <span class="n">j</span><span class="o">=</span><span class="n">interpreted</span><span class="o">,</span> <span class="n">Vv</span><span class="o">=</span><span class="n">VM</span> <span class="n">code</span><span class="o">)</span>
+<span class="n">j</span> <span class="n">sun</span><span class="o">.</span><span class="na">misc</span><span class="o">.</span><span class="na">Unsafe</span><span class="o">.</span><span class="na">compareAndSwapLong</span><span class="o">(</span><span class="n">Ljava</span><span class="o">/</span><span class="n">lang</span><span class="o">/</span><span class="n">Object</span><span class="o">;</span><span class="n">JJJ</span><span class="o">)</span><span class="n">Z</span><span class="o">+</span><span class="mi">0</span>
+<span class="n">j</span> <span class="n">net</span><span class="o">.</span><span class="na">openhft</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">NativeBytes</span><span class="o">.</span><span class="na">compareAndSwapLong</span><span class="o">(</span><span class="n">JJJ</span><span class="o">)</span><span class="n">Z</span><span class="o">+</span><span class="mi">13</span>
+<span class="n">j</span> <span class="n">net</span><span class="o">.</span><span class="na">openhft</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">AbstractBytes</span><span class="o">.</span><span class="na">tryLockNanos8a</span><span class="o">(</span><span class="n">JJ</span><span class="o">)</span><span class="n">Z</span><span class="o">+</span><span class="mi">12</span>
+<span class="n">j</span> <span class="n">net</span><span class="o">.</span><span class="na">openhft</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">AbstractBytes</span><span class="o">.</span><span class="na">tryLockNanosLong</span><span class="o">(</span><span class="n">JJ</span><span class="o">)</span><span class="n">Z</span><span class="o">+</span><span class="mi">41</span>
+<span class="n">j</span> <span class="n">net</span><span class="o">.</span><span class="na">openhft</span><span class="o">.</span><span class="na">collections</span><span class="o">.</span><span class="na">AbstractVanillaSharedHashMap$Segment</span><span class="o">.</span><span class="na">lock</span><span class="o">()</span><span class="n">V</span><span class="o">+</span><span class="mi">12</span>
+</pre></div>
+
+<h5>
+<a name="when-chronicle-map-is-full" class="anchor" href="#when-chronicle-map-is-full"><span class="octicon octicon-link"></span></a>When Chronicle Map is Full</h5>
+
+<p>It will throw this exception :</p>
+
+<div class="highlight highlight-java"><pre><span class="nl">Caught:</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">IllegalStateException</span><span class="o">:</span> <span class="n">VanillaShortShortMultiMap</span> <span class="n">is</span> <span class="n">full</span>
+<span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">IllegalStateException</span><span class="o">:</span> <span class="n">VanillaShortShortMultiMap</span> <span class="n">is</span> <span class="n">full</span>
+    <span class="n">at</span> <span class="n">net</span><span class="o">.</span><span class="na">openhft</span><span class="o">.</span><span class="na">collections</span><span class="o">.</span><span class="na">VanillaShortShortMultiMap</span><span class="o">.</span><span class="na">nextPos</span><span class="o">(</span><span class="n">VanillaShortShortMultiMap</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">226</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">net</span><span class="o">.</span><span class="na">openhft</span><span class="o">.</span><span class="na">collections</span><span class="o">.</span><span class="na">AbstractVanillaSharedHashMap$Segment</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">VanillaSharedHashMap</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">834</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">net</span><span class="o">.</span><span class="na">openhft</span><span class="o">.</span><span class="na">collections</span><span class="o">.</span><span class="na">AbstractVanillaSharedHashMap</span><span class="o">.</span><span class="na">put0</span><span class="o">(</span><span class="n">VanillaSharedHashMap</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">348</span><span class="o">)</span>
+    <span class="n">at</span> <span class="n">net</span><span class="o">.</span><span class="na">openhft</span><span class="o">.</span><span class="na">collections</span><span class="o">.</span><span class="na">AbstractVanillaSharedHashMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">VanillaSharedHashMap</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">330</span><span class="o">)</span>
+</pre></div>
+
+<p>Chronicle Map doesn't resize automatically.  It is assumed you will make the virtual size of the map
+larger than you need and it will handle this reasonably efficiently. With the default settings you
+will run out of space between 1 and 2 million entries.</p>
+
+<p>You should set the .entries(..) and .entrySize(..) to those you require.</p>
+
+<h1>
+<a name="example--simple-hello-world" class="anchor" href="#example--simple-hello-world"><span class="octicon octicon-link"></span></a>Example : Simple Hello World</h1>
+
+<p>This simple chronicle map, works just like ConcurrentHashMap but stores its data off-heap. If you want to use Chronicle Map to share data between java process you should look at the next exampl </p>
+
+<div class="highlight highlight-java"><pre><span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">CharSequence</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="n">ChronicleMapBuilder</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">class</span><span class="o">,</span>
+        <span class="n">CharSequence</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">create</span><span class="o">();</span>
+
+<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"hello world"</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
+
+</pre></div>
+
+<h1>
+<a name="example--sharing-the-map-on-two--or-more--processes-on-the-same-machine" class="anchor" href="#example--sharing-the-map-on-two--or-more--processes-on-the-same-machine"><span class="octicon octicon-link"></span></a>Example : Sharing the map on two ( or more ) processes on the same machine</h1>
+
+<p>Lets assume that we had two server, lets call them server1 and server2, if we wished to share a map
+between them, this is how we could set it up</p>
+
+<div class="highlight highlight-java"><pre>
+<span class="c1">// --- RUN ON ONE JAVA PROCESS ( BUT ON THE SAME SERVER )</span>
+<span class="o">{</span>
+    <span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="s">"a-new-file-on-your-sever"</span><span class="o">);</span>   
+    <span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">CharSequence</span><span class="o">&gt;</span> <span class="n">map1</span> <span class="o">=</span> <span class="n">ChronicleMapBuilder</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">class</span><span class="o">,</span>
+            <span class="n">CharSequence</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">create</span><span class="o">(</span><span class="n">file</span><span class="o">);</span> <span class="c1">// this has to be the same file as used by map 2</span>
+    <span class="n">map1</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"hello world"</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="c1">// --- RUN ON THE OTHER JAVA PROCESS ( BUT ON THE SAME SERVER )</span>
+<span class="o">{</span>
+    <span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="s">"a-new-file-on-your-sever"</span><span class="o">);</span>  <span class="c1">// this has to be the same file as used by map 1</span>
+    <span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">CharSequence</span><span class="o">&gt;</span> <span class="n">map1</span> <span class="o">=</span> <span class="n">ChronicleMapBuilder</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">class</span><span class="o">,</span>
+            <span class="n">CharSequence</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">create</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
+
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">map1</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
+<span class="o">}</span>
+</pre></div>
+
+<h1>
+<a name="example--replicating-data-between-process-on-different-servers-via-tcp" class="anchor" href="#example--replicating-data-between-process-on-different-servers-via-tcp"><span class="octicon octicon-link"></span></a>Example : Replicating data between process on different servers via TCP</h1>
+
+<p>Lets assume that we had two server, lets call them server1 and server2, if we wished to share a map
+between them, this is how we could set it up</p>
+
+<div class="highlight highlight-java"><pre><span class="n">Map</span> <span class="n">map1</span><span class="o">;</span>
+<span class="n">Map</span> <span class="n">map2</span><span class="o">;</span>
+
+<span class="c1">//  ----------  SERVER1 1 ----------</span>
+<span class="o">{</span>
+
+    <span class="c1">// we connect the maps via a TCP socket connection on port 8077</span>
+
+    <span class="n">TcpReplicationConfig</span> <span class="n">tcpConfig</span> <span class="o">=</span> <span class="n">TcpReplicationConfig</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">8076</span><span class="o">,</span> <span class="k">new</span> <span class="nf">InetSocketAddress</span><span class="o">(</span><span class="s">"localhost"</span><span class="o">,</span> <span class="mi">8077</span><span class="o">))</span>
+            <span class="o">.</span><span class="na">heartBeatInterval</span><span class="o">(</span><span class="mi">1L</span><span class="o">,</span> <span class="n">SECONDS</span><span class="o">);</span>
+    <span class="n">ChronicleMapBuilder</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">CharSequence</span><span class="o">&gt;</span> <span class="n">map1Builder</span> <span class="o">=</span>
+            <span class="n">ChronicleMapBuilder</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">CharSequence</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">entries</span><span class="o">(</span><span class="mi">20000L</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">addReplicator</span><span class="o">(</span><span class="n">tcp</span><span class="o">((</span><span class="kt">byte</span><span class="o">)</span> <span class="mi">1</span><span class="o">,</span> <span class="n">tcpConfig</span><span class="o">));</span>
+
+
+    <span class="n">map1</span> <span class="o">=</span> <span class="n">map1Builder</span><span class="o">.</span><span class="na">create</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="c1">//  ----------  SERVER2 on the same server as ----------</span>
+
+<span class="o">{</span>
+    <span class="n">TcpReplicationConfig</span> <span class="n">tcpConfig</span> <span class="o">=</span> <span class="n">TcpReplicationConfig</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">8077</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">heartBeatInterval</span><span class="o">(</span><span class="mi">1L</span><span class="o">,</span> <span class="n">SECONDS</span><span class="o">);</span>
+    <span class="n">ChronicleMapBuilder</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">CharSequence</span><span class="o">&gt;</span> <span class="n">map2Builder</span> <span class="o">=</span>
+            <span class="n">ChronicleMapBuilder</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">CharSequence</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">entries</span><span class="o">(</span><span class="mi">20000L</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">addReplicator</span><span class="o">(</span><span class="n">tcp</span><span class="o">((</span><span class="kt">byte</span><span class="o">)</span> <span class="mi">2</span><span class="o">,</span> <span class="n">tcpConfig</span><span class="o">));</span>
+    <span class="n">map2</span> <span class="o">=</span> <span class="n">map2Builder</span><span class="o">.</span><span class="na">create</span><span class="o">();</span>
+
+    <span class="c1">// we will stores some data into one map here</span>
+    <span class="n">map2</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="s">"EXAMPLE"</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="c1">//  ----------  CHECK ----------</span>
+
+<span class="c1">// we are now going to check that the two maps contain the same data</span>
+
+<span class="c1">// allow time for the recompilation to resolve</span>
+<span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="k">for</span> <span class="o">(;</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="mi">5000</span><span class="o">;</span> <span class="n">t</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">map1</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">map2</span><span class="o">))</span>
+        <span class="k">break</span><span class="o">;</span>
+    <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="n">Assert</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">(</span><span class="n">map1</span><span class="o">,</span> <span class="n">map2</span><span class="o">);</span>
+<span class="n">assertTrue</span><span class="o">(!</span><span class="n">map1</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">());</span>
+<span class="o">}</span>
+</pre></div>
+
+<h1>
+<a name="example--replicating-data-between-process-on-different-servers-using-udp" class="anchor" href="#example--replicating-data-between-process-on-different-servers-using-udp"><span class="octicon octicon-link"></span></a>Example : Replicating data between process on different servers using UDP</h1>
+
+<p>This example is the same as the one above, but it uses a slow throttled TCP/IP connection to fill in updates that may have been missed when sent over UDP. Usually on a good network, for example a wired LAN, UDP won’t miss updates. But UDP does not support guaranteed delivery, we recommend also running a TCP connection along side to ensure the data becomes eventually consistent.  Note : It is possible to use Chronicle without the TCP replication and just use UDP (  that’s if you like living dangerously ! )</p>
+
+<div class="highlight highlight-java"><pre><span class="n">Map</span> <span class="n">map1</span><span class="o">;</span>
+<span class="n">Map</span> <span class="n">map2</span><span class="o">;</span>
+
+<span class="kt">int</span> <span class="n">udpPort</span> <span class="o">=</span> <span class="mi">1234</span><span class="o">;</span>
+
+<span class="c1">//  ----------  SERVER1 1 ----------</span>
+<span class="o">{</span>
+
+    <span class="c1">// we connect the maps via a TCP socket connection on port 8077</span>
+
+    <span class="n">TcpReplicationConfig</span> <span class="n">tcpConfig</span> <span class="o">=</span> <span class="n">TcpReplicationConfig</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">8076</span><span class="o">,</span> <span class="k">new</span> <span class="nf">InetSocketAddress</span><span class="o">(</span><span class="s">"localhost"</span><span class="o">,</span> <span class="mi">8077</span><span class="o">))</span>
+            <span class="o">.</span><span class="na">heartBeatInterval</span><span class="o">(</span><span class="mi">1L</span><span class="o">,</span> <span class="n">SECONDS</span><span class="o">)</span>
+
+            <span class="c1">// a maximum of 1024 bits per millisecond</span>
+            <span class="o">.</span><span class="na">throttlingConfig</span><span class="o">(</span><span class="n">ThrottlingConfig</span><span class="o">.</span><span class="na">throttle</span><span class="o">(</span><span class="mi">1024</span><span class="o">,</span> <span class="n">TimeUnit</span><span class="o">.</span><span class="na">MILLISECONDS</span><span class="o">));</span>
+
+
+    <span class="n">UdpReplicationConfig</span> <span class="n">udpConfig</span> <span class="o">=</span> <span class="n">UdpReplicationConfig</span>
+            <span class="o">.</span><span class="na">simple</span><span class="o">(</span><span class="n">Inet4Address</span><span class="o">.</span><span class="na">getByName</span><span class="o">(</span><span class="s">"255.255.255.255"</span><span class="o">),</span> <span class="n">udpPort</span><span class="o">);</span>
+
+    <span class="n">ChronicleMapBuilder</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">CharSequence</span><span class="o">&gt;</span> <span class="n">map1Builder</span> <span class="o">=</span>
+            <span class="n">ChronicleMapBuilder</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">CharSequence</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">entries</span><span class="o">(</span><span class="mi">20000L</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">addReplicator</span><span class="o">(</span><span class="n">tcp</span><span class="o">((</span><span class="kt">byte</span><span class="o">)</span> <span class="mi">1</span><span class="o">,</span> <span class="n">tcpConfig</span><span class="o">))</span>
+                    <span class="o">.</span><span class="na">addReplicator</span><span class="o">(</span><span class="n">udp</span><span class="o">((</span><span class="kt">byte</span><span class="o">)</span> <span class="mi">1</span><span class="o">,</span> <span class="n">udpConfig</span><span class="o">));</span>
+
+
+    <span class="n">map1</span> <span class="o">=</span> <span class="n">map1Builder</span><span class="o">.</span><span class="na">create</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="c1">//  ----------  SERVER2 2 on the same server as ----------</span>
+
+<span class="o">{</span>
+    <span class="n">TcpReplicationConfig</span> <span class="n">tcpConfig</span> <span class="o">=</span> <span class="n">TcpReplicationConfig</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">8077</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">heartBeatInterval</span><span class="o">(</span><span class="mi">1L</span><span class="o">,</span> <span class="n">SECONDS</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">throttlingConfig</span><span class="o">(</span><span class="n">ThrottlingConfig</span><span class="o">.</span><span class="na">throttle</span><span class="o">(</span><span class="mi">1024</span><span class="o">,</span> <span class="n">TimeUnit</span><span class="o">.</span><span class="na">MILLISECONDS</span><span class="o">));</span>
+
+    <span class="n">UdpReplicationConfig</span> <span class="n">udpConfig</span> <span class="o">=</span> <span class="n">UdpReplicationConfig</span>
+            <span class="o">.</span><span class="na">simple</span><span class="o">(</span><span class="n">Inet4Address</span><span class="o">.</span><span class="na">getByName</span><span class="o">(</span><span class="s">"255.255.255.255"</span><span class="o">),</span> <span class="n">udpPort</span><span class="o">);</span>
+
+    <span class="n">ChronicleMapBuilder</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">CharSequence</span><span class="o">&gt;</span> <span class="n">map2Builder</span> <span class="o">=</span>
+            <span class="n">ChronicleMapBuilder</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">CharSequence</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">entries</span><span class="o">(</span><span class="mi">20000L</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">addReplicator</span><span class="o">(</span><span class="n">tcp</span><span class="o">((</span><span class="kt">byte</span><span class="o">)</span> <span class="mi">2</span><span class="o">,</span> <span class="n">tcpConfig</span><span class="o">))</span>
+                    <span class="o">.</span><span class="na">addReplicator</span><span class="o">(</span><span class="n">udp</span><span class="o">((</span><span class="kt">byte</span><span class="o">)</span> <span class="mi">1</span><span class="o">,</span> <span class="n">udpConfig</span><span class="o">));</span>
+
+    <span class="n">map2</span> <span class="o">=</span> <span class="n">map2Builder</span><span class="o">.</span><span class="na">create</span><span class="o">();</span>
+
+    <span class="c1">// we will stores some data into one map here</span>
+    <span class="n">map2</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="s">"EXAMPLE"</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="c1">//  ----------  CHECK ----------</span>
+
+<span class="c1">// we are now going to check that the two maps contain the same data</span>
+
+<span class="c1">// allow time for the recompilation to resolve</span>
+<span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="k">for</span> <span class="o">(;</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="mi">5000</span><span class="o">;</span> <span class="n">t</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">map1</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">map2</span><span class="o">))</span>
+        <span class="k">break</span><span class="o">;</span>
+    <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="n">Assert</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">(</span><span class="n">map1</span><span class="o">,</span> <span class="n">map2</span><span class="o">);</span>
+<span class="n">assertTrue</span><span class="o">(!</span><span class="n">map1</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">());</span>
+<span class="o">}</span>
+</pre></div>
+
+<h1>
+<a name="example--creating-a-chronicle-set-and-adding-data-to-it" class="anchor" href="#example--creating-a-chronicle-set-and-adding-data-to-it"><span class="octicon octicon-link"></span></a>Example : Creating a Chronicle Set and adding data to it</h1>
+
+<p>This project also provideds the Chronicle Set, Chronicle Set is built on Chronicle Map, so the builder configuration are almost identical to Chronicle Map ( see above ), this example shows how to create a simple off heap set</p>
+
+<div class="highlight highlight-java"><pre>        <span class="n">Set</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">set</span> <span class="o">=</span> <span class="n">ChronicleSetBuilder</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">create</span><span class="o">();</span>
+
+        <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">set</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
+</pre></div>
+
+<p>and just like map it support shared memory and TCP replication.         </p>
+
+<h1>
+<a name="performance-topics-1" class="anchor" href="#performance-topics-1"><span class="octicon octicon-link"></span></a>Performance Topics</h1>
+
+<h3>
+<a name="tuning-chronicle-map-with-large-data" class="anchor" href="#tuning-chronicle-map-with-large-data"><span class="octicon octicon-link"></span></a>Tuning Chronicle Map with Large Data</h3>
+
+<p>Generally speaking Chronicle Map is slower then ConcurrentHashMap for a small number of entries, but
+for a large number of entries ConcurrentHashMap doesn't scale as well as Chronicle Map, especially
+when you start running low on heap. ConcurrentHashMap quickly becomes unusable whereas Chronicle Map
+can still work when it is 20 times the size of a ConcurrentHashMap with an Out of Memory Error.</p>
+
+<p>For example with a heap of 3/4 of say 32 GB main memory, you might get say 100 million entries but
+when using most of the heap you might see 20-40 second gc pauses with Chronicle Map you could have
+1000 million entries and see &lt; 100 ms pauses (depending on your disk subsystem and how fast you
+write your data)</p>
+
+<p>Chronicle Map makes heavy use of the OS to perform the memory management and writing to disk. How it
+behaves is very dependant on how you tune the kernel and what hardware you are using. You may get
+bad behaviour when the kernel forces a very large amount of data to disk after letting a lot of
+uncommited data build up. In the worst case scenario the OS will stop the process for tens of
+seconds at a time ( even up to 40 seconds) rather than let the program continue. However, to get
+into that state you have to be loading a lot of data which exceeds main memory with very little rest
+(e.g. cpu processing). There are good use cases for bulk data loads, but you have to be careful how
+this is done if you also want good worst case latency characteristics. (the throughput should be
+much the same)</p>
+
+<p>When you create a Chronicle Map, it has many segments. By default it has a minimum of 128, but one
+for every 32 K entries. e.g. for 500M entries you can expect ~16K segments (being the next power of
+2). With so many segments, the chances of a perfect hash distribution is low and so the Chronicle
+Map allows for double what you asked for but is designed to do this with almost no extra main memory
+(only extra virtual memory). This means when you ask for 500M * 256 bytes entries you actually get 1
+BN possible entries (assuming a perfect hash distribution between segments) There is a small
+overhead per entry of 16 - 24 bytes adding another 20 GB.</p>
+
+<p>So while the virtual memory is 270 GB, it is expected that for 500 M entries you will be trying to
+use no more than 20 GB (overhead/hash tables) + ~120 GB (entries)</p>
+
+<p>When Chronicle Map has exhausted all the memory on your server, its not going to be so fast, for a
+random access pattern you are entirely dependant on how fast your underlying disk is. If your home
+directory is an HDD and its performance is around 125 IOPS (I/Os per second). Each lookup takes two
+memory accesses so you might get around 65 lookups per second. For 100-200K operations you can
+expect around 1600 seconds or 25-50 minutes. If you use an SSD, it can get around 230 K IOPS, or
+about 115 K Chronicle Map lookups per second.</p>
+
+<h3>
+<a name="better-to-use-small-keys" class="anchor" href="#better-to-use-small-keys"><span class="octicon octicon-link"></span></a>Better to use small keys</h3>
+
+<p>If you put() a small number of large entries into Chronicle Map, you are unlikely to see any
+performance gains over a standard map, So we recommend you use a standard ConcurrentHashMap, unless
+you need Chronicle Maps other features.</p>
+
+<p>Chronicle Map gives better performance for smaller keys and values due to the low overhead per
+entry. It can use 1/5th the memory of ConcurrentHashMap. When you have larger entries, the overhead
+per entry doesn't matter so much and the relative waste per entry starts to matter. For Example,
+Chronicle Map assumes every entry is the same size and if you have 10kB-20kB entries the 10K entries
+can be using 20 kB of virtual memory or at least 12 KB of actual memory (since virtual memory turns
+into physical memory in multiples of a page)</p>
+
+<p>As the Chronicle Map gets larger the most important factor is the use of CPU cache rather than main
+memory, performance is constrained by the number of cache lines you have to touch to update/read an
+entry. For large entries this is much the same as ConcurrentHashMap.  In this case, Chronicle Map is
+not worse than ConcurrentHashMap but not much better.</p>
+
+<p>For large key/values it is not total memory use but other factors which matter such as;</p>
+
+<ul>
+<li>how compact each entry is. Less memory used makes better use of the L3 cache and memory bus which
+is often a bottleneck in highly concurrent applications. </li>
+<li>reduce the impact on GCs. The time to perform  GC and its impact is linear. Moving the bulk of
+your data off heap can dramatically improve throughput not to mention worst case latency.</li>
+<li>Large data structures take a long time to reload and having a persisted store significantly
+reduces restart times.</li>
+<li>data can be shared between processes. This gives you more design options to share between JVMS and
+support short lived tasks without having to use TCP.</li>
+<li>data can be replicated across machines.</li>
+</ul>
+
+<h3>
+<a name="concurrenthashmap-v-chroniclemap" class="anchor" href="#concurrenthashmap-v-chroniclemap"><span class="octicon octicon-link"></span></a>ConcurrentHashMap v ChronicleMap</h3>
+
+<p>ConcurrentHashMap ( CHM ) outperforms Chronicle Map ( CM ) on throughput.  If you don't need
+the extra features SharedHashMap gives you, it is not worth the extra complexity it brings.
+i.e. don't use it just because you think it is cool. The test can be found in
+<a href="https://github.com/OpenHFT/Chronicle-Map/blob/master/src/test/java/net/openhft/chronicle/map/ChronicleMapTest.java">ChronicleMapTest</a>
+under testAcquirePerf() and testCHMAcquirePerf()</p>
+
+<p>Chronicle Map out performs ConcurrentHashMap on memory consumption, and worst case latencies.
+It can be used to reduce or eliminate GCs.</p>
+
+<h4>
+<a name="performance-test-for-many-small-key-values" class="anchor" href="#performance-test-for-many-small-key-values"><span class="octicon octicon-link"></span></a>Performance Test for many small key-values</h4>
+
+<p>The following performance test consists of string keys of the form "u:0123456789" and an int
+counter.  The update increments the counter once in each thread, creating an new entry if required.</p>
+
+<table>
+<thead>
+<tr>
+<th align="right">Number of entries</th>
+<th align="right">Chronicle* Throughput</th>
+<th align="right">Chronicle RSS</th>
+<th align="right">HashMap* Throughput</th>
+<th align="right">HashMap Worst GC pause</th>
+<th align="right">HashMap RSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">10 million</td>
+<td align="right">30 Mupd/s</td>
+<td align="right">½ GB</td>
+<td align="right">155 Mupd/s</td>
+<td align="right">2.5 secs</td>
+<td align="right">9 GB</td>
+</tr>
+<tr>
+<td align="right">50 million</td>
+<td align="right">31 Mupd/s</td>
+<td align="right">3⅓ GB</td>
+<td align="right">120 Mupd/s</td>
+<td align="right">6.9 secs</td>
+<td align="right">28 GB</td>
+</tr>
+<tr>
+<td align="right">250 million</td>
+<td align="right">30 Mupd/s</td>
+<td align="right">14 GB</td>
+<td align="right">114 Mupd/s</td>
+<td align="right">17.3 secs</td>
+<td align="right">76 GB</td>
+</tr>
+<tr>
+<td align="right">1000 million</td>
+<td align="right">24 Mupd/s</td>
+<td align="right">57 GB</td>
+<td align="right">OOME</td>
+<td align="right">43 secs</td>
+<td align="right">NA</td>
+</tr>
+<tr>
+<td align="right">2500 million</td>
+<td align="right">23 Mupd/s</td>
+<td align="right">126 GB</td>
+<td align="right">Did not test</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
+
+<p><em>*HashMap refers to ConcurrentHashMap, Chronicle refers to Chronicle Map</em></p>
+
+<p>Notes:</p>
+
+<ul>
+<li>Chronicle Map was tested with a 32 MB heap, CHM was test with a 100 GB heap.</li>
+<li>The Chronicle Map test had a small minor GC on startup of 0.5 ms, but not during the test.
+This is being investigated.</li>
+<li>Chronicle Map was tested "writing" to a tmpfs file system.</li>
+</ul>
+
+<h4>
+<a name="how-does-it-perform-when-persisted" class="anchor" href="#how-does-it-perform-when-persisted"><span class="octicon octicon-link"></span></a>How does it perform when persisted?</h4>
+
+<p>Chronicle Map also supports persistence. In this regard there is no similar class in the JDK.</p>
+
+<table>
+<thead>
+<tr>
+<th align="right">Number of entries</th>
+<th align="right">Chronicle Throughput</th>
+<th align="right">Chronicle RSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">10 million</td>
+<td align="right">28 Mupd/s</td>
+<td align="right">½ GB</td>
+</tr>
+<tr>
+<td align="right">50 million</td>
+<td align="right">28 Mupd/s</td>
+<td align="right">9 GB</td>
+</tr>
+<tr>
+<td align="right">250 million</td>
+<td align="right">26 Mupd/s</td>
+<td align="right">24 GB</td>
+</tr>
+<tr>
+<td align="right">1000 million</td>
+<td align="right">1.3 Mupd/s</td>
+<td align="right">85 GB</td>
+</tr>
+</tbody>
+</table>
+
+<p>Notes:</p>
+
+<ul>
+<li>Persistence was performed at a PCI-SSD which supports up to 230K IOPS and 900 MB/s write speed.
+This test didn't test the card to it's limit until the last test.</li>
+<li>The kernel tuning parameters for write back are important here.
+This explains the suddern drop off and this is being investigated.</li>
+</ul>
+
+<p>The sysctl parameters used were approximately 10x the defaults to allow as many operations
+to be performed in memory as possible.</p>
+
+<pre><code>vm.dirty_background_ratio = 50
+vm.dirty_expire_centisecs = 30000
+vm.dirty_ratio = 90
+vm.dirty_writeback_centisecs = 5000
+</code></pre>
       </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Chronicle-map maintained by <a href="https://github.com/OpenHFT">OpenHFT</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/OpenHFT">OpenHFT</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
-
+    <script src="javascripts/scale.fix.js"></script>
     
-
   </body>
 </html>
