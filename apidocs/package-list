@@ -1,6 +1,6 @@
 net.openhft.chronicle
 net.openhft.chronicle.map
-net.openhft.chronicle.map.serialization
-net.openhft.chronicle.map.serialization.impl
-net.openhft.chronicle.map.threadlocal
+net.openhft.chronicle.serialization
+net.openhft.chronicle.serialization.impl
 net.openhft.chronicle.set
+net.openhft.chronicle.threadlocal
