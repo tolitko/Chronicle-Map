@@ -1,7 +1,7 @@
 net.openhft.chronicle.common
-net.openhft.chronicle.exceptions
+net.openhft.chronicle.common.exceptions
+net.openhft.chronicle.common.serialization
+net.openhft.chronicle.common.serialization.impl
+net.openhft.chronicle.common.threadlocal
 net.openhft.chronicle.map
-net.openhft.chronicle.serialization
-net.openhft.chronicle.serialization.impl
 net.openhft.chronicle.set
-net.openhft.chronicle.threadlocal
