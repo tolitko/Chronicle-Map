@@ -1,4 +1,4 @@
-net.openhft.chronicle
+net.openhft.chronicle.common
 net.openhft.chronicle.exceptions
 net.openhft.chronicle.map
 net.openhft.chronicle.serialization
