@@ -2,6 +2,5 @@ net.openhft.chronicle.hash
 net.openhft.chronicle.hash.exceptions
 net.openhft.chronicle.hash.serialization
 net.openhft.chronicle.hash.serialization.impl
-net.openhft.chronicle.hash.threadlocal
 net.openhft.chronicle.map
 net.openhft.chronicle.set
