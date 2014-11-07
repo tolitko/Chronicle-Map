@@ -1,5 +1,4 @@
 net.openhft.chronicle.hash
-net.openhft.chronicle.hash.exceptions
 net.openhft.chronicle.hash.replication
 net.openhft.chronicle.hash.serialization
 net.openhft.chronicle.map
