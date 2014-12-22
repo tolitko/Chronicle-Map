@@ -4,3 +4,4 @@ net.openhft.chronicle.hash.replication
 net.openhft.chronicle.hash.serialization
 net.openhft.chronicle.map
 net.openhft.chronicle.set
+net.openhft.xstreem.convertors
