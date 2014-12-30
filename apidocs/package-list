@@ -2,7 +2,7 @@ net.openhft.chronicle.hash
 net.openhft.chronicle.hash.hashing
 net.openhft.chronicle.hash.replication
 net.openhft.chronicle.hash.serialization
+net.openhft.chronicle.hash.serialization.internal
 net.openhft.chronicle.map
 net.openhft.chronicle.set
-net.openhft.xstreem
-net.openhft.xstreem.converters
+net.openhft.xstream
