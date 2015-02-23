@@ -1,8 +1,5 @@
 net.openhft.chronicle.hash
-net.openhft.chronicle.hash.function
 net.openhft.chronicle.hash.hashing
-net.openhft.chronicle.hash.impl
-net.openhft.chronicle.hash.locks
 net.openhft.chronicle.hash.replication
 net.openhft.chronicle.hash.serialization
 net.openhft.chronicle.map
