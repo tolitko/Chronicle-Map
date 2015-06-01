@@ -35,7 +35,7 @@ public abstract class MapStatelessClient<E extends ParameterizeWireKey> extends 
             @NotNull final Class<R> resultType,
             @Nullable Object... args) {
         final Function<ValueIn, R> valueInRFunction = f -> {
-            f.text((StringBuilder) usingValue);
+            f.textTo((StringBuilder) usingValue);
             return usingValue;
         };
 
