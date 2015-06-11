@@ -141,7 +141,6 @@ public class TcpReplicationLargeEntryTest {
                     System.out.println("same");
                     break;
                 }
-
             }
             Thread.sleep(1);
         }

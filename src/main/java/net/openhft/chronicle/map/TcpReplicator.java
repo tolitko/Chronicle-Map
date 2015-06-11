@@ -2145,9 +2145,7 @@ class StatelessServerConnector<K, V> {
             out.limit(limit);
             out.position(pos);
         }
-
     }
-
     private void writeException(@NotNull TcpReplicator.TcpSocketChannelEntryWriter out,
                                 Throwable e) {
         writeObject(out, e);

@@ -222,9 +222,7 @@ public class TestEntriesSpanningSeveralChunksReplicationHub {
                 v2.put("key2", (short) 1);
                 break;
             }
-
         }
-
         // check that the maps are the same, if the are not the same the test will timeout
         // we have to give a few seconds for the replication to propagate
         for (short channelId = 1; channelId < NUMBER_OF_CHANNELS; channelId++) {
@@ -254,9 +252,7 @@ public class TestEntriesSpanningSeveralChunksReplicationHub {
 
                 break;
             }
-
         }
-
         // close
 
         for (short channelId = 1; channelId < NUMBER_OF_CHANNELS; channelId++) {

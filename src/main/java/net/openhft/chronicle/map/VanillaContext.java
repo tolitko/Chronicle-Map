@@ -32,7 +32,6 @@ class VanillaContext<K, KI, MKI extends MetaBytesInterop<K, ? super KI>,
         extends HashContext<K, KI, MKI>
         implements MapKeyContext<K, V> {
 
-    
     /////////////////////////////////////////////////
     // Inner state & lifecycle
     
@@ -85,7 +84,6 @@ class VanillaContext<K, KI, MKI extends MetaBytesInterop<K, ? super KI>,
         closeValue();
         closeValueReader();
     }
-    
 
     /////////////////////////////////////////////////
     // Map and context locals

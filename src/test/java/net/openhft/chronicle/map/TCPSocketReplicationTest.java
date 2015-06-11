@@ -199,7 +199,6 @@ public class TCPSocketReplicationTest {
                     System.out.println("same");
                     break;
                 }
-
             }
             Thread.sleep(1);
         }

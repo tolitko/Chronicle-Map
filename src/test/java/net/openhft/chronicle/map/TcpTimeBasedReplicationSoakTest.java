@@ -114,9 +114,7 @@ public class TcpTimeBasedReplicationSoakTest {
             } else {
                 map.remove((int) rnd.nextInt(100));
             }
-
         }
-
         System.out.println("\nwaiting till equal");
 
         waitTillUnchanged(1000);
@@ -143,7 +141,6 @@ public class TcpTimeBasedReplicationSoakTest {
             if (numberOfTimesTheSame == 100) {
                 break;
             }
-
         }
     }
 

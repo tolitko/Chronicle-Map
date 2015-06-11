@@ -621,9 +621,7 @@ public class StatelessClientTest {
             executorService.shutdownNow();
             executorService.awaitTermination(1000, TimeUnit.SECONDS);
         }
-
     }
-
     @Test
     public void testPutsStatelessClientWithReplication() throws IOException, InterruptedException {
 
@@ -711,9 +709,7 @@ public class StatelessClientTest {
             executorService.shutdownNow();
             executorService.awaitTermination(1000, TimeUnit.SECONDS);
         }
-
     }
-
     @Test(timeout = 10000)
     public void testCreateWithByteArrayKeyValue() throws IOException, InterruptedException {
 
@@ -756,9 +752,7 @@ public class StatelessClientTest {
                 Assert.assertNotNull(map2.get(key));
             }
         }
-
     }
-
     @Ignore //TODO Failing on teamcity but working locally...
     @Test(timeout = 10000)
     public void testGetServerVersion() throws IOException, InterruptedException {

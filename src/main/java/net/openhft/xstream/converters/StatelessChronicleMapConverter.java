@@ -73,7 +73,6 @@ public class StatelessChronicleMapConverter<K, V> extends AbstractChronicleMapCo
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             throw new ConversionException("", e);
         }
-
     }
 }
 

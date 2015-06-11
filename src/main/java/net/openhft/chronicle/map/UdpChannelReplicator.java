@@ -202,9 +202,7 @@ class UdpChannelReplicator extends AbstractChannelReplicator implements Replica.
             if (!isClosed)
                 closeEarlyAndQuietly(key.channel());
         }
-
     }
-
     private DatagramChannel connectClient() throws IOException {
         final DatagramChannel client = address.isMulticastAddress() ?
                 DatagramChannel.open(address.getAddress().length == 4 ? INET : INET6) :

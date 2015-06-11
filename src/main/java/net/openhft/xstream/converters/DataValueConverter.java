@@ -142,9 +142,7 @@ public class DataValueConverter implements Converter {
                 } catch (Exception e) {
                     LOG.error("class=" + fileModel.name(), e);
                 }
-
             }
-
         } catch (ClassNotFoundException e) {
             throw new ConversionException("class=" + canonicalName, e);
         }
@@ -206,9 +204,7 @@ public class DataValueConverter implements Converter {
         } catch (Exception e) {
             throw new ConversionException("class=" + canonicalName, e);
         }
-
     }
-
     private void fillInObject(HierarchicalStreamReader reader, UnmarshallingContext context, Object using) throws ClassNotFoundException {
 
         while (reader.hasMoreChildren()) {

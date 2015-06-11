@@ -215,7 +215,6 @@ public class BGChronicleTest {
             if (clientId == 0 && count > 0 && count % 50000 == 0) {
                 logMessagesPerSecond(count, start);
             }
-
         }
     }
 

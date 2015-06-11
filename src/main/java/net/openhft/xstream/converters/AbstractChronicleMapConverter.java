@@ -66,9 +66,7 @@ class AbstractChronicleMapConverter<K, V> implements Converter {
             }
             writer.endNode();
         }
-
     }
-
     @Override
     public Object unmarshal(HierarchicalStreamReader reader,
                             UnmarshallingContext context) {
@@ -142,7 +140,6 @@ class AbstractChronicleMapConverter<K, V> implements Converter {
             } catch (Exception e1) {
                 throw new ConversionException("class=" + clazz, e1);
             }
-
         }
     }
 }

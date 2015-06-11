@@ -250,9 +250,7 @@ public class EntryCountMapTest {
         } finally {
             map.close();
         }
-
     }
-
     private static int moreThanMaxSize(int maxSize) {
         return maxSize * 14 / 10 + 300;
     }

@@ -247,7 +247,6 @@ public class EventListenerWithTCPSocketReplicationTest {
                 if (numberOfTimesTheSame == 100) {
                     break;
                 }
-
             }
             Thread.sleep(1);
         }

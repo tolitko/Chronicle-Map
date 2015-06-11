@@ -267,7 +267,6 @@ ConcurrentMap<Integer, CharSequence> map =
 ```
 In this example above we have set 1000 entries.
 
-
 We have optimised ChronicleMap so that you can have situations where you either don't use;
 
 - All the entries for which you have allowed.  This works best on Unix where the disk space and memory
@@ -292,7 +291,6 @@ We suggest you don't configure size for constant-sized keys or values, instead y
 builder methods .constantKeySizeBySample(sampleKey) and
 .constantValueSizeBySample(sampleValue). For common types like Integer we suggest you don't use
 these methods, for example ChronicleMap understands that Integer is 4 bytes long, Long is 8, etc.
-
 
 ### Size of space reserved on disk
 
@@ -565,8 +563,6 @@ V acquireUsing(key,value) {
 }
 ```
 
-
-
 ####  acquireUsingLocked()
 
 If you are only accessing ChronicleMap from a single thread. If you are not doing replication
@@ -591,7 +587,6 @@ try (WriteContext<?, BondVOInterface> context = map.acquireUsingLocked("one", bo
 }
 ```
 
-
 If after some business logic, in our example after reading the 'issueDate' and
 'symbol', you wish to remove the entry, its more efficient to use the 'context' directly to remove the entry. The
 'context' is already aware of the entries location in memory. So it will be quicker to call
@@ -600,7 +595,6 @@ If after some business logic, in our example after reading the 'issueDate' and
 ## Serialization
 
 ![Serialization](http://chronicle.software/wp-content/uploads/2014/09/Serialization_01.jpg)
-
 
 ChronicleMap stores your data into off heap memory, so when you give it a Key or Value, it will
 serialise these objects into bytes.
@@ -644,7 +638,6 @@ Importing and exporting the map, is ideal if you wish to:
 * Bulk load data from one ChronicleMap into another.
 * migrate data between versions of ChronicleMap.
 
-
 ## Close
 Unlike ConcurrentHashMap, ChronicleMap stores its data off heap, often in a memory mapped file.
 Its recommended that you call close() once you have finished working with a ChronicleMap.
@@ -663,7 +656,6 @@ its not something that you must do, it's just something that we recommend you sh
 
 If you call close() too early before you have finished working with the map, this can cause
 your JVM to crash. Close MUST BE the last thing that you do with the map.
-
 
 # TCP / UDP Replication
 
@@ -771,8 +763,7 @@ map = ChronicleMapBuilder
     .create();
 ```
 
-
-### Bootstrapping 
+### Bootstrapping
 When a node is connected over the network to an active grid of nodes. It must first receive any data
 that it does not have from the other nodes. Eventually, all the nodes in the grid have to hold a
 copy of exactly the same data. We refer to this initial data load phase as bootstrapping.
@@ -948,7 +939,6 @@ import static org.junit.Assert.assertEquals;
 
 ChronicleMap<CharSequence, CharSequence> favoriteColourServer1, favoriteColourServer2;
 ChronicleMap<CharSequence, CharSequence> favoriteComputerServer1, favoriteComputerServer2;
-
 
 // server 1 with  identifier = 1
 {
@@ -1391,7 +1381,6 @@ public class YourClass {
         Assert.assertEquals(map1, map2);
         Assert.assertTrue(!map1.isEmpty());
     }
-
 }
 ```
 
@@ -1503,8 +1492,7 @@ a simple off heap set
         set.remove(1)
 ```
 and just like map it support shared memory and TCP replication.         
-        
-        
+
 # Performance Topics
 
 There are general principles we can give direction on - for specific advise we believe consulting
@@ -1661,11 +1649,9 @@ counter.  The update increments the counter once in each thread, creating an new
 
 _*HashMap refers to ConcurrentHashMap, Chronicle refers to Chronicle Map_
 
-
 Key :
 RSS - Resident memory size.  How much main memory was used.
 Mupd/s - Million write operations per second. i.e. put(key, value);
-
 
 Notes:
 * `ChronicleMap` was tested with a 32 MB heap, CHM was test with a 100 GB heap.
@@ -1792,5 +1778,4 @@ Three reasons you can get segment is full are:
 - the number entries was not specified and the default was too small.
 - the size of the entries is larger than the default allows. You can specify the size of the entries a number of ways. Eg with the averageXxxxSize
 - the distribution of keys is unfortunate so one segment fills while another is not. You can increase the possible entries a little or decrease the number of segments to avoid this.
-
 

@@ -81,9 +81,7 @@ class JsonSerializer {
                             " expecting an object of type com.thoughtworks.xstream.converters" +
                             ".Converter");
                 }
-
             }
-
             return xstream;
         } catch (NoClassDefFoundError e) {
             logErrorSuggestXStreem(e);

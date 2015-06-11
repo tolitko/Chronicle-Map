@@ -55,9 +55,7 @@ public class TcpReplicationWithAcquireContextTest {
                 Assert.assertEquals(map1a, map2a);
             }
         }
-
     }
-
     @Test
     public void testReplicationWithEmptyOffHeapObject() throws Exception {
 
@@ -101,9 +99,7 @@ public class TcpReplicationWithAcquireContextTest {
                 Assert.assertEquals(map1a, map2a);
             }
         }
-
     }
-
     @Test
     public void testReplicationWithOffHeapObject() throws Exception {
 
@@ -148,6 +144,5 @@ public class TcpReplicationWithAcquireContextTest {
                 Assert.assertEquals(map1a, map2a);
             }
         }
-
     }
 }

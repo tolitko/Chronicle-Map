@@ -48,7 +48,6 @@ import static net.openhft.chronicle.hash.impl.HashContext.SearchState.*;
 public abstract class HashContext<K, KI, MKI extends MetaBytesInterop<K, ? super KI>>
         implements KeyContext<K> {
 
-    
     /////////////////////////////////////////////////
     // Inner state & lifecycle
     static final ThreadLocal<HashContext> threadLocalContextCache =
@@ -154,7 +153,6 @@ public abstract class HashContext<K, KI, MKI extends MetaBytesInterop<K, ? super
         assert !keySearchInit() : "key search not closed";
         assert !entrySizeInChunksInit() : "entry size in chunks not closed";
     }
-    
 
     /////////////////////////////////////////////////
     // Hash
@@ -204,7 +202,6 @@ public abstract class HashContext<K, KI, MKI extends MetaBytesInterop<K, ? super
         h = null;
     }
 
-    
     /////////////////////////////////////////////////
     // Hash and context locals
     final ArrayList<HashAndContextLocalsReference<K>> hashAndContextLocalsCache =
@@ -380,7 +377,6 @@ public abstract class HashContext<K, KI, MKI extends MetaBytesInterop<K, ? super
         keyReader = null;
     }
 
-    
     /////////////////////////////////////////////////
     // Key
     K key;
@@ -1128,7 +1124,6 @@ public abstract class HashContext<K, KI, MKI extends MetaBytesInterop<K, ? super
         entrySpaceOffset = 0L;
     }
 
-    
     /////////////////////////////////////////////////
     // Hash lookup
     public void initHashLookup() {
@@ -1157,7 +1152,6 @@ public abstract class HashContext<K, KI, MKI extends MetaBytesInterop<K, ? super
         closeKeySearch();
     }
 
-    
     /////////////////////////////////////////////////
     // Entry
     final MultiStoreBytes entryCache = new MultiStoreBytes();

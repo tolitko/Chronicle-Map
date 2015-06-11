@@ -203,7 +203,6 @@ public class ChronicleMapTest {
 
                 assertEquals(map1, map2);
             }
-
         }
     }
 
@@ -224,7 +223,6 @@ public class ChronicleMapTest {
 
                 assertEquals(map1, map2);
             }
-
         }
     }
 
@@ -245,7 +243,6 @@ public class ChronicleMapTest {
 
                 assertEquals(map1, map2);
             }
-
         }
     }
 
@@ -1704,9 +1701,7 @@ public class ChronicleMapTest {
                     Assert.assertNotNull(map2.get(key));
                 }
             }
-
         }
-
     }
 
     @Test(expected = IllegalArgumentException.class)

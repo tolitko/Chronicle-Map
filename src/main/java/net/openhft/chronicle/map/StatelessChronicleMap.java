@@ -298,9 +298,7 @@ class StatelessChronicleMap<K, V> implements ChronicleMap<K, V>, Closeable, Clon
             outBytes.position(position);
             //     outBytesLock.lock();
         }
-
     }
-
     private byte[] copyBufferBytes() {
         byte[] bytes = new byte[outBuffer.limit()];
         outBuffer.position(0);
@@ -336,9 +334,7 @@ class StatelessChronicleMap<K, V> implements ChronicleMap<K, V>, Closeable, Clon
             if (closeables != null) closeables.closeQuietly();
             clientChannel = null;
         }
-
     }
-
     /**
      * closes the existing connections and establishes a new closeables
      */
@@ -831,9 +827,7 @@ class StatelessChronicleMap<K, V> implements ChronicleMap<K, V>, Closeable, Clon
                 inBytesLock.unlock();
             }
         }
-
     }
-
     public void putAll(@NotNull Map<? extends K, ? extends V> map) {
         final long sizeLocation;
 
@@ -1748,9 +1742,7 @@ class StatelessChronicleMap<K, V> implements ChronicleMap<K, V>, Closeable, Clon
             default:
                 return false;
         }
-
     }
-
     private void writeObject(@NotNull Object function) {
         assert outBytesLock.isHeldByCurrentThread();
         assert !inBytesLock.isHeldByCurrentThread();
