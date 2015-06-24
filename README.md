@@ -1,3 +1,6 @@
+
+*Note that version chronicle-map-2.1.10 is the last official working release under the apache license.
+
 *We can help you get Chronicle up and running in your organisation, we suggest you invite us in for
 consultancy, charged on an ad-hoc basis, we can discuss the best options tailored to your individual
 requirements. - [Contact Us](http://chronicle.software/support/)*
